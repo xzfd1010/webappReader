@@ -11,7 +11,7 @@ var render = views('./view', {//view是存放路径
 var koa_static = require('koa-static-server');
 app.use(koa_static({
 	rootDir: './static/',//整个静态资源的目录
-	rootPath: '/s',//URL上面的路径,即我们访问的目录，上面那个是查找静态资源的位置
+	rootPath: '/static',//URL上面的路径,即我们访问的目录，上面那个是查找静态资源的位置
 	maxage: 0//指定缓存，因为静态文件有缓存周期，要指定过期时间，设置时间为0即不缓存
 
 }));
