@@ -43,6 +43,11 @@ app.use(controller.get('/search', function*(){
 	this.body = yield render('search', {title: '搜索'});
 }));
 
+app.use(controller.get('/reader', function*(){
+	this.set('Cache-Control', 'no-cache');
+	this.body = yield render('reader');
+}));
+
 app.use(controller.get('/category', function*(){
 	this.set('Cache-Control', 'no-cache');
 	this.body = yield render('category', {title: '分类'});
@@ -68,7 +73,7 @@ app.use(controller.get('/book', function*(){
 	this.set('Cache-Control', 'no-cache');
     var params = querystring.parse(this.req._parsedUrl.query);
     var bookId = params.id;
-	this.body = yield render('book', {bookId: bookId});
+	this.body = yield render('book', {nav: '书籍详情', bookId: bookId});
 }));
 
 
@@ -115,15 +120,30 @@ app.use(controller.get('/ajax/male', function*(){
 	this.body = service.get_male_data();
 }));
 //书籍比较不一样，有id参数
+var querystring = require('querystring');
 app.use(controller.get('/ajax/book', function*(){
 	this.set('Cache-Control', 'no-cache');
-	var querystring = require('querystring');
 	var params = querystring.parse(this.req._parsedUrl.query);//将HTTPquerystring转化为obj形式
     var id = params.id;
     if(!id) {
     	id = "";//先给空的，到了下一层，就有给18218
     }
 	this.body = service.get_book_data(id);
+}));
+//章节
+app.use(controller.get('/ajax/chapter', function*(){
+	this.set('Cache-Control', 'no-cache');
+	this.body = service.get_chapter_data();
+}));
+//章节数据内容
+app.use(controller.get('/ajax/chapter_data', function*(){
+	this.set('Cache-Control', 'no-cache');
+	var params = querystring.parse(this.req._parsedUrl.query);//将HTTPquerystring转化为obj形式
+    var id = params.id;
+    if(!id) {
+    	id = "";//先给空的，到了下一层，就有给18218
+    }
+	this.body = service.get_chapter_content_data(id);
 }));
 
 app.listen(3005);
