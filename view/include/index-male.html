@@ -1,21 +1,3 @@
-<style type="text/css">
-	.channel-h5_footer_next {
-		border-top: 1px solid #f0f0f0;
-		overflow: hidden;
-	}
-	.channel-h5_footer_next > a {
-		float: left;
-		width: 50%;
-		padding: 14px;
-		font: 13px/1.3em a;
-		color: rgba(0, 0, 0, 0.9);
-		text-align: center;
-		box-sizing: border-box; 
-	}
-	.channel-h5_footer_next > a:first-child {
-		border-right: 1px solid #f0f0f0;
-	}
-</style>
 <section class="channel-h5">
 	<div class="channel-h5_header">
 		<p class="channel-h5_title">
@@ -25,34 +7,18 @@
 	<div>
 		<div>
 			<ul class="list-h5">
-				<li>
+				<li v-for=" item in male">
 					<div class="book-h5">
 						<div class="book-h5_cover">
-							<img src="http://cover.read.duokan.com/mfsv2/download/fdsc3/p01RMLeQBFAT/M7zKia3xLuW3DU.jpg!s">
+							<img alt="{{ item.title }}" v-bind:src="item.cover">
 							<p class="book-h5_finish">完结</p>
 						</div>
 						<div class="book-h5_info">
-							<p class="book-h5_title">书名</p>
-							<p class="book-h5_author">作者</p>
-							<p class="book-h5_summary">简介</p>
+							<p class="book-h5_title">{{ item.title }}</p>
+							<p class="book-h5_author">{{ item.authors }}</p>
+							<p class="book-h5_summary">{{ item.summary }}</p>
 							<div class="book-h5_wrap"><!--包裹层用于控制-->
-								<div class="book-h5_tag">标签</div>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="book-h5">
-						<div class="book-h5_cover">
-							<img src="http://cover.read.duokan.com/mfsv2/download/fdsc3/p01RMLeQBFAT/M7zKia3xLuW3DU.jpg!s">
-							<p class="book-h5_finish">完结</p>
-						</div>
-						<div class="book-h5_info">
-							<p class="book-h5_title">书名</p>
-							<p class="book-h5_author">作者</p>
-							<p class="book-h5_summary">简介</p>
-							<div class="book-h5_wrap"><!--包裹层用于控制-->
-								<div class="book-h5_tag">标签</div>
+								<div class="book-h5_tag" v-for="tag in item.tags">{{ tag }}</div>
 							</div>
 						</div>
 					</div>
