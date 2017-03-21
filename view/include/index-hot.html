@@ -5,7 +5,7 @@
 		</p>
 	</div>
 	<ul class="list-h5">
-		<li v-for="item in hot">
+		<li v-for="item in hot" v-if="$index>=0 && $index<5">
 			<div class="book-h5">
 			<a href="/book?id={{ item.fiction_id }}">
 				<div class="book-h5_cover">
@@ -17,7 +17,7 @@
 					<p class="book-h5_author">{{ item.authors }}</p>
 					<p class="book-h5_summary">{{ item.summary }}</p>
 					<div class="book-h5_wrap"><!--包裹层用于控制-->
-						<div class="book-h5_tag" v-for="tag in item.tags">{{ tag }}</div>
+						<div class="book-h5_tag" v-for="tag in item.tags"  v-if="$index>0 && $index<4">{{ tag }}</div>
 					</div>
 				</div>
 				</a>

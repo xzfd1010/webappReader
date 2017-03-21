@@ -927,13 +927,14 @@
 							RootContainer.css('font-size', InitFontSize);
 						});
 
+
 						//字体缩小
 						$('#small-font').click(function() {
 							if (InitFontSize < 12) {
 								return;
 							}
 							InitFontSize -= 1;
-							localStorage.StorageSetter('font_size', InitFontSize);
+							Util.StorageSetter('font_size', InitFontSize);
 							RootContainer.css('font-size', InitFontSize);
 						});
 
@@ -973,6 +974,21 @@
 						Dom.prev_button.click(function() {
 							fiction.prev();
 						});
+
+						// $('#prev_button').click(function() {
+		    // 			//todo 先获得章节的翻页数据-->再把数据拿出来渲染
+		    // 			readerModel.prevChapter();
+		    			
+		    // 		});
+
+						// $('#next_button').click(function() {
+		    // 			readerModel.nextChapter(function(data) {//实现渲染,记住data要在方法里面传进来
+		    // 				readerUI(data);
+		    // 			});
+		    // 		});
+
+
+
 
 						//返回上级页面
 						Dom.back_button.click(function() {
