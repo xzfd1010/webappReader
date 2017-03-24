@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="/static/css/reset.css"/>
+	<title>目录</title>
+	<style type="text/css">
+	    .catecard {
+	    	border: 1px solid #eee;
+	    	padding: 10px 0;
+	    	height: 20px;
+	    }
+		.left {
+			/*float: left;*/
+			margin-left: 10px;
+		}
+		.catecard a {
+			display: inline-block;
+			float: right;
+			color: green;
+			margin-right: 10px;
+			/*margin-left: 230px;*/
+		} 
+	</style>
+</head>
+<body>
+    <div id="cate">
+    	<% include include/common-header.html %>
+    	<ul class="catelist">
+    		<li class="catecard" v-for="item in cate">
+    			<span class="left">第{{ $index + 1 }}章 &nbsp;&nbsp;{{ item.name }}</span>
+    			<a>{{ item.free }}</a>
+    		</li>
+    	</ul>
+
+    	<!-- <ul class="catelist">
+    		<li class="catecard">
+    			<span class="left">第1章 鬼车鬼车鬼车鬼车鬼车鬼车鬼车鬼车</span>
+    			<a>免费</a>
+    		</li>
+    	</ul> -->
+    </div>
+    <script src="/static/script/vue.js"></script>
+    <script src="/static/script/zepto.js"></script>
+	<script src="/static/script/page/catedetail.js"></script>
+</body>
+</html>

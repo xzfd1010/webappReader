@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<title>签到</title>
+	<style type="text/css">
+	    .check-item {
+	    	padding: 0 15px;
+	    }
+	    .check-card {
+	    	border-bottom: 1px solid #eee;
+	    	padding: 20px 0;
+	    }
+
+		.left-tag {
+			width: 36px;
+			height: 36px;
+			float: left;
+		}
+		.reg-btn {
+			display: inline-block;
+			background-color: #ef5b00;
+			color: #fff;
+			text-align: center;
+			width: 50px;
+			padding: 2px 0;
+			float: right;
+			border-radius: 4px;
+			position: relative;
+			top: 10px;
+		}
+		.check p {
+			color: #6b3416;
+		}
+		.check h3 {
+			color: #6b3416;
+		}
+		.check img {
+			margin-right: 10px;
+		}
+
+	</style>
+</head>
+<body>
+<div id="checkapp">
+		<% include include/common-header.html %>
+		<ul class="check-list">
+			<li class="check-item" v-for="item in check">
+				<div class="check-card">
+					<section><a class="reg-btn" href="/sign">签到</a></section>
+					<section class="check">
+						<img class="left-tag" alt="{{ item.item_title }}" v-bind:src="item.left_tag">
+						<h3>{{ item.item_title }}</h3>
+						<p>{{ item.item_desc }}</p>
+					</section>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<script src="/static/script/vue.js"></script>
+	<script src="/static/script/zepto.js"></script>
+	<script src="/static/script/page/check.js"></script>
+</body>
+</html>

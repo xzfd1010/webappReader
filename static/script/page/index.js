@@ -24,7 +24,11 @@ $.get('/ajax/index', function(d){
 			header_position: 0,
 			header_duration: 0,
 			tab_1_class: 'Swiper-tab__on',
-			tab_2_class: ''
+			tab_2_class: '',
+			first_female_index: 0,
+			last_female_index: 5,
+			first_male_index: 0,
+			last_male_index: 5,
 		},
 		methods: {
 			tabSwitch: function(pos) {
@@ -41,7 +45,32 @@ $.get('/ajax/index', function(d){
 					this.tab_2_class = "Swiper-tab__on";
 					this.tab_1_class = "";
 				}
+			},
+			femaleSwitch: function() {
+				this.first_female_index += 5;
+				this.last_female_index += 5;
+				if(this.first_female_index > 10) {
+					this.first_female_index = 0;
+					this.last_female_index = 5;
+				}
+			},
+			maleSwitch: function() {
+				this.first_male_index += 5;
+				this.last_male_index += 5;
+				if(this.first_male_index > 10) {
+					this.first_male_index = 0;
+					this.last_male_index = 5;
+				}
 			}
 		}
 	});
 }, 'json');
+//Swiper
+ var mySwiper = new Swiper ('.swiper-container', {
+    autoplay: 3000,
+    loop: true
+  });
+
+  $(".shelf__switch").click(function(){
+  	alert("11");
+  });       
