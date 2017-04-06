@@ -1,35 +1,32 @@
 <section class="channel-h5">
-	<div class="channel-h5_header">
-		<p class="channel-h5_title">
-		    男生最爱
-		</p>
-	</div>
-	<div>
-		<div>
-			<ul class="list-h5">
-				<li v-for=" item in male" v-if="$index>=first_male_index && $index<last_male_index">
-					<a href="/book?id={{ item.fiction_id }}">
-						<div class="book-h5">
-							<div class="book-h5_cover">
-								<img alt="{{ item.title }}" v-bind:src="item.cover">
-								<p class="book-h5_finish">完结</p>
-							</div>
-							<div class="book-h5_info">
-								<p class="book-h5_title">{{ item.title }}</p>
-								<p class="book-h5_author">{{ item.authors }}</p>
-								<p class="book-h5_summary">{{ item.summary }}</p>
-								<div class="book-h5_wrap"><!--包裹层用于控制-->
-									<div class="book-h5_tag" v-for="tag in item.tags" v-if="$index>0 && $index<4">{{ tag }}</div>
-								</div>
-							</div>
-						</div>
-					</a>
-				</li>
-			</ul>
-		</div>
-		<div class="channel-h5_footer_next">
-			<a href="javascript:" v-on:click="maleSwitch()">换一换</a>
-			<a href="/male">男生频道</a>
-		</div>
-	</div>
+    <div class="channel-h5__header">
+        <p class="channel-h5__title">
+            男生最爱
+        </p>
+    </div>
+    <div>
+        <ul class="list-h5">
+            <li v-for="item in male" v-if="$index>0 && $index<5">
+                <div class="book-h5">
+                    <div class="book-h5__cover">
+                        <img alt="{{item.title}}" v-bind:src="item.cover">
+                        <p class="book-h5__finish">完结</p>
+                    </div>
+                    <div class="book-h5__info">
+                        <p class="book-h5__title">{{item.title}}</p>
+                        <p class="book-h5__author">{{item.authors}}</p>
+                        <p class="book-h5__summary">{{item.summary}}</p>
+                        <div class="book-h5__wrap">
+                            <div class="book-h5__tag" v-for="tag in item.tags" v-if="$index>0 && $index<4">{{tag}}</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="channel-h5__footer_next">
+        <a href="javascript:void(0);">换一换</a>
+        <a href="javascript:void(0);">男生频道</a>
+    </div>
+
 </section>

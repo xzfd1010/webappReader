@@ -1,13 +1,16 @@
 <div class="header-tab" id="app_header">
-	<div class="Swipe-tab Swipe-tab_2 f-cb">
-		<a href="javascript:" v-on:click="tabSwitch(0)" class="{{ tab_1_class}}"></a><!--从兼容性角度看，避免页面发生跳转问题-->
-		<a href="javascript:" v-on:click="tabSwitch(1)" class="{{ tab_2_class }}"></a>
-		<i style="width: {{ index_header_tab_width }}px; transition-duration: {{ header_duration  }}s;transform: translate3d({{ header_position }}px, 0px, 0px);"></i>
-	</div>
-	<!-- <a href=""> -->
-	<a class="header-user" href="/sign"></a>
-	<!-- </a> -->
-	<!-- <a href=""> -->
-	<a class="header-checkin" href="/checkin"></a>
-	<!-- </a> -->
+    <!--使用多个class来操作 Swipe-tab统一的tab切换的样式，Swipe-tab_2只针对两个tab的样式，f-cb用于清除浮动-->
+    <!--文字放到css里面，是因为把js和css视为静态文件，把模版视为动态的-->
+    <div class="Swipe-tab Swipe-tab_2 f-cb">
+        <a href="javascript:void(0);" v-on:click="tabSwitch(0)" class="{{tab_1_class}}"></a>
+        <a href="javascript:void(0);" v-on:click="tabSwitch(1)" class="{{tab_2_class}}"></a>
+        <!--移动端使用css3，写到css里的属性会被js操作-->
+        <i style="width:{{index_header_tab_width}}px;transition-duration:{{header_duration}}s;transform:translate3d({{header_position}}px,0px,0px)"></i>
+    </div>
+    <!-- <a href=""> -->
+    <em class="header-user"></em>
+    <!-- </a> -->
+    <!-- <a href=""> -->
+    <em class="header-checkin"></em>
+    <!-- </a> -->
 </div>
