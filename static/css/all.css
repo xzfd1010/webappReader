@@ -203,28 +203,13 @@
     text-align: center;
     border: 1px solid #d3d3d3;
 }
-.book-table{
-    font-size:0;
-}
-.book-table li>*{
-    display: inline-block;
-}
+
 .book-table li{
     width:33.3%;
     display: inline-block;
     vertical-align: top;
     line-height:1;
     margin-bottom:8px;
-}
-/*这里是控制li三等分后，里面内容的对其方式*/
-.book-table li:nth-child(3n+1){
-    text-align: left;
-}
-.book-table li:nth-child(3n+2){
-    text-align: center;
-}
-.book-table li:nth-child(3n){
-    text-align: right;
 }
 
 .Swipe,
