@@ -10,14 +10,14 @@
 
 </head>
 <body>
-<div id="app" style="width:{{screen_width}}px;height:100%;">
+<div id="app" :style="{width:screen_width+'px'}" style="height:100%;">
     <% include include/common-header.html %>
-    <div class="container-scroll" style="width:{{screen_width}}px;">
+    <div class="container-scroll" :style="{width:screen_width+'px'}">
         <div class="book-page">
             <section class="main-card" style="border-bottom: none;">
                 <div class="u-book -detail">
                     <div class="book-cover">
-                        <img v-bind:src="item.cover" alt="{{item.title}}">
+                        <img :src="item.cover" alt="{{item.title}}">
                     </div>
                     <div class="info">
                         <h3 class="title">{{item.title}}</h3>
@@ -40,7 +40,7 @@
                     <div class="wrap">
                         <ul class="btn-group">
                             <!--可能有多个按钮-->
-                            <li class="u-btn2" v-on:click="readBook();">
+                            <li class="u-btn2" @click="readBook">
                                 <span class="book-dash-text"></span>
                             </li>
                         </ul>
@@ -78,7 +78,7 @@
                         <li v-for="book in author_books">
                             <div class="u-book -vertical">
                                 <div class="book-cover">
-                                    <img v-bind:src="book.cover" title="{{book.title}}"/>
+                                    <img :src="book.cover" title="{{book.title}}"/>
                                 </div>
                                 <div class="info">
                                     <h3 class="title">{{book.title}}</h3>
@@ -98,7 +98,7 @@
                         <li v-for="book in related">
                             <div class="u-book -vertical">
                                 <div class="book-cover">
-                                    <img v-bind:src="book.cover" title="{{book.title}}"/>
+                                    <img :src="book.cover" title="{{book.title}}"/>
                                 </div>
                                 <div class="info">
                                     <h3 class="title">{{book.title}}</h3>

@@ -4,7 +4,7 @@ $.get('/ajax/index', function (d) {
     if (windowWidth < 320) {
         windowWidth = 320;
     }
-    var offset = $('.Swipe-tab a').eq(0).offset();
+    var offset = $($('.Swipe-tab').find('a')[0]).offset();
     var index_header_tab_width = offset.width;
     new Vue({
         el: "#app",

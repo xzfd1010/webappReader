@@ -6,7 +6,7 @@
         <li v-for="item in free" >
             <div class="u-book">
                 <div class="book-cover">
-                    <img alt="{{item.title}}" v-bind:src="item.data.cover">
+                    <img alt="{{item.title}}" :src="item.data.cover">
                     <div class="u-tagRT -freefiction"></div>
                 </div>
                 <div class="book-info">

@@ -117,6 +117,7 @@
 
 .channel-group {
     position: relative;
+    border-bottom: 10px solid #f5f5f5;
 }
 .channel-group__header{
     position: relative;
